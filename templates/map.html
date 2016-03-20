@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head_title %}
+This is your map|crawler.com
+{% endblock %}
+{% block content %}
+<div id="bg">
+</div>
+<div id="my_progress_bar">
+    <i class="fa fa-spinner fa-pulse fa-3x"></i>
+</div>
+<div id="bug">
+    <h4>Turns out there is no such site bro...</h4>
+    <i class="fa fa-bug fa-5x"></i>
+</div>
+<div id="cy" style="display: none"></div>
+{% endblock %}
+{% block script %}
+<script>
+    function checkFile()
+    {
+        var bugDisplayFunction;
+        $.ajax({
+            type: 'GET',
+            url: '/url/{{ url }}',
+            error : function(){
+                setTimeout(function(){checkFile();}, 1000);
+                bugDisplayFunction = setTimeout(function(){
+                    $('#my_progress_bar').fadeOut(function(){
+                    });}, 20000);
+            },
+            success : function(data) {
+                $('#my_progress_bar').fadeOut(function(){
+                    $("#cy").fadeIn();
+                });
+                clearTimeout(bugDisplayFunction);
+                buildCytoscape(data);
+            }
+        });
+    }
+    $(function() {
+        checkFile();
+    });
+</script>
+{% endblock %}
+

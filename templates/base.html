@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="shortcut icon" href="{% static 'icon.png' %}" type="image/x-icon">
+		<title>{% block head_title %}{% endblock %}</title>
+		{% include 'css.html' %}
+		{% include 'js.html' %}
+	</head>
+	<body>
+		{% block content %}
+		{% endblock %}
+	</body>
+	{% block script %}
+	{% endblock %}
+</html>

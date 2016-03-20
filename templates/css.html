@@ -1,0 +1,77 @@
+{% load staticfiles %}
+
+<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/bootstrap-theme.min.css' %}" rel="stylesheet">
+<link href="{% static 'css/theme.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<style>
+#bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url('https://wallpaperscraft.com/image/dark_spots_texture_background_50355_1920x1080.jpg')
+	center center no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+#cy {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+html, body
+{
+	font-family: 'Helvetica Neue', sans-serif;
+	color: aliceblue;
+
+}
+h2 { 
+  color: aliceblue; 
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 40px; 
+  font-weight: 300; 
+  line-height: 50px; 
+  letter-spacing: 1px;
+}
+h4 {
+  font-size: 20px;
+	color: aliceblue;
+}
+.outer {
+    height: 45em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.narrow-select { 
+  width: 35px;
+  height: 33px;
+  color: grey;
+}
+.form-inline {
+    text-align: center;
+}
+#url_error {
+  border-radius: 6px 6px 6px 6px;
+  -moz-border-radius: 6px 6px 6px 6px;
+  -webkit-border-radius: 6px 6px 6px 6px;
+  border: 4px solid firebrick;
+}
+#my_progress_bar{
+  text-align: center;
+  margin-top:400px;
+}
+#bug {
+  display: none;
+  text-align: center;
+  margin-top:400px;
+}
+.errorlist {
+    list-style: none;
+}
+</style>
+

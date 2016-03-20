@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head_title %}
+Crawl the web!|crawler.com
+{% endblock %}
+{% block content %}
+    <div id="bg"></div>
+	<div class="outer">
+	<div class="middle">
+            <div class ="row">
+			    <h2>What do you want me to crawl?</h2>
+            </div>
+            <div id="content" style="height: 100px">
+                <div id="form_containter" class="row">
+                    <div class="col-lg-12">
+                            <form class = "form-inline" method='POST' action=''>
+                                {% csrf_token %}
+                                <div>
+                                {{ form.url.errors }}
+                                <label 
+                                {% if form.url.errors %}id="url_error"{% endif %}>
+                                {{ form.url }}
+                                </label>
+                                <input id="shl" class='btn btn-default' 
+                                type='submit' name='shallow' value='Shallow'/>
+                                <input id="dep" class='btn btn-success' 
+                                type='submit' name='deep' value='Deep'/>
+                                </div>
+                            </form>  
+                    </div>
+                </div>
+                <div id="my_progress_bar" style="display: none;text-align: center;">
+                    <i class="fa fa-spinner fa-pulse fa-2x"></i>
+                </div>
+            </div>
+	</div>
+	</div>
+{% endblock %}
+{% block script %}
+<script>
+    $("#dep").on('click', function(){
+            $('#form_containter').fadeOut(function(){
+                $("#my_progress_bar").fadeIn();
+            });
+    });
+    $("#shl").on('click', function(){
+            $('#form_containter').fadeOut(function(){
+                $("#my_progress_bar").fadeIn();
+            });
+    });
+</script>
+{% endblock %}
